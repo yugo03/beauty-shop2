@@ -10,7 +10,7 @@ export default function Home() {
 
   const fetchItems = async () => {
     try {
-      const res = await fetch('http://localhost:3001/items');
+      const res = await fetch('https://beauty-shop2-backend-production.up.railway.app/items');
       const data = await res.json();
       setItems(Array.isArray(data) ? data : []);
     } catch (error) { setItems([]); }
@@ -28,7 +28,7 @@ export default function Home() {
     }
 
     try {
-      await fetch('http://localhost:3001/items', {
+      await fetch('https://beauty-shop2-backend-production.up.railway.app/items', {
         method: 'POST',
         body: formData,
       });
@@ -40,7 +40,7 @@ export default function Home() {
   const handleDelete = async (id: number) => {
     if (!confirm("削除しますか？")) return;
     try {
-      await fetch(`http://localhost:3001/items/${id}`, { method: 'DELETE' });
+     await fetch(`https://beauty-shop2-backend-production.up.railway.app/items/${id}`, { method: 'DELETE' });
       fetchItems();
     } catch (error) {}
   };
